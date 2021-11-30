@@ -1,0 +1,15 @@
+type Usuario{
+    _id : ID
+    nombre: String
+    apellido: String
+    identificacion: String
+    correo: String
+    contrasena: String
+    rol: String
+    estado: String   
+
+}
+type Query{
+    "Devuelve todos los cursos"
+    getUsuarios:[Usuario]
+}

@@ -1,34 +1,34 @@
- [{
+[
+  {
     "nombre": "manuel",
     "apellido": "jojoa",
-    "identificacion":"106177168",
-    "correo":"manuel@gmail.com",
-    "contrasena":"ajdhsuodjs",
-    "rol":"administrador",
-    "estado":"activo"		
-    },
-    {
+    "identificacion": "106177168",
+    "correo": "manuel@gmail.com",
+    "contrasena": "ajdhsuodjs",
+    "rol": "administrador",
+    "estado": "activo"
+  },
+  {
     "nombre": "johana",
     "apellido": "argoty",
-    "identificacion":"106177187",
-    "correo":"johana@gmail.com",
-    "contrasena":"ajdhsuodjs",
-    "rol":"estudiante",
-    "estado":"activo"		
-    }],
-    [{
+    "identificacion": "106177187",
+    "correo": "johana@gmail.com",
+    "contrasena": "ajdhsuodjs",
+    "rol": "estudiante",
+    "estado": "activo"
+  },
+  {
     "nombreProyecto": "react",
-    "objetivos":"frontend",
+    "objetivos": "frontend",
     "presupuesto": 12000,
-    "fechaInicio":"24112021",
-    "fechaFin":"02122021"
-    },
-    {
+    "fechaInicio": "24112021",
+    "fechaFin": "02122021"
+  },
+  {
     "nombreProyecto": "javascript",
-    "objetivos":"frontend",
+    "objetivos": "frontend",
     "presupuesto": 10000,
-    "fechaInicio":"24112021",
-    "fechaFin":"02122021"
-    }
-    ]
-    
+    "fechaInicio": "24112021",
+    "fechaFin": "02122021"
+  }
+]
