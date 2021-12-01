@@ -1,5 +1,5 @@
 type Usuario{
-    _id : ID
+    _id: ID
     nombre: String
     apellido: String
     identificacion: String
@@ -10,6 +10,8 @@ type Usuario{
 
 }
 type Query{
-    "Devuelve todos los cursos"
+    "Devuelve todos los usuarios"
     getUsuarios:[Usuario]
+    "Devuelve un usuario"
+    getUsuario(id:ID!):Usuario
 }

@@ -1,8 +1,10 @@
 "use strict";
 
-const { graphql, buildSchema } = require("graphql"); //primer  tipo de consulta squema
-const express = require("express"); //contruir el servicio donde voy  a consumir la consulta
-const { graphqlHTTP } = require("express-graphql"); //el point donde voy a hacer las peticiones
+require('dotenv').config()
+//const { graphql, buildSchema } = require("graphql"); //primer  tipo de consulta squema
+const {makeExecutableSchema}= require('graphql-tools') //proyectos grandes
+const express = require("express") //contruir el servicio donde voy  a consumir la consulta
+const { graphqlHTTP } = require("express-graphql") //el point donde voy a hacer las peticiones
 //libreria de manejor de archivos
 const {readFileSync} = require("fs") 
 const {join} = require("path")
@@ -12,14 +14,13 @@ const resolvers = require("./lib/resolvers") //traer un archivo js con una funci
 const app = express(); //llamando el servicio configurando un server
 const port = process.eventNames.port || 3000; //debo darle un puerto para escuchar las peticiones
 
-//primera schema colocamos la ruta 
-const schema = buildSchema(
-    readFileSync(
-        join(__dirname, 'lib', 'schema_graphql'), //ruta donde esta el archivo 
-        'utf-8'
-    )
-);
 
+const typeDefs = readFileSync(
+    join(__dirname, 'lib', 'schema.graphql'),
+    'utf-8'
+)
+//llamo a la dependencia
+const schema = makeExecutableSchema({typeDefs, resolvers})
 
 //configurar la aplicacion para cuando se lance, la ruta relativa, llamo al middleware y
 // pasamos los tres argumentos: schema, rootValue, graphiql (aplicacion grafixa)
