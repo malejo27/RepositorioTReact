@@ -20,7 +20,8 @@ const typeDefs = readFileSync(
     'utf-8'
 )
 //llamo a la dependencia
-const schema = makeExecutableSchema({typeDefs, resolvers})
+const schema = makeExecutableSchema({
+    typeDefs, resolvers})
 
 //configurar la aplicacion para cuando se lance, la ruta relativa, llamo al middleware y
 // pasamos los tres argumentos: schema, rootValue, graphiql (aplicacion grafixa)

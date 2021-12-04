@@ -12,6 +12,5 @@ type Usuario{
 type Query{
     "Devuelve todos los usuarios"
     getUsuarios:[Usuario]
-    "Devuelve un usuario"
-    getUsuario(id:ID!):Usuario
+    
 }
