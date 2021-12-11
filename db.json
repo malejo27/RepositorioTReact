@@ -18,6 +18,24 @@
     "estado": "activo"
   },
   {
+    "nombre": "jonathan",
+    "apellido": "aldana",
+    "identificacion": "106177187",
+    "correo": "johana@gmail.com",
+    "contrasena": "ajdhsuodjs",
+    "rol": "estudiante",
+    "estado": "activo"
+  },
+  {
+    "nombre": "fulanita",
+    "apellido": "detal",
+    "identificacion": "106177187",
+    "correo": "johana@gmail.com",
+    "contrasena": "ajdhsuodjs",
+    "rol": "estudiante",
+    "estado": "activo"
+  },
+  {
     "nombreProyecto": "react",
     "objetivos": "frontend",
     "presupuesto": 12000,
