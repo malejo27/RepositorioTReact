@@ -1,18 +1,20 @@
 "use strict";
 
 require('dotenv').config()
-const { graphql, buildSchema } = require("graphql"); //primer  tipo de consulta squema
+// const { graphql, buildSchema } = require("graphql-tools"); //primer  tipo de consulta squema
 const {makeExecutableSchema}= require('graphql-tools') 
- const express = require("express") 
- const { graphqlHTTP } = require("express-graphql") //el point donde voy a hacer las peticiones
+const express = require("express") 
+const cors = require ('cors')
+const { graphqlHTTP } = require("express-graphql") //el point donde voy a hacer las peticiones
 // //libreria de manejor de archivos
  const {readFileSync} = require("fs") 
 const {join} = require("path")
 const resolvers = require("./lib/resolvers") //traer un archivo js con una funcion
 
 
- const app = express(); //llamando el servicio configurando un server
- const port = process.eventNames.port || 3000; //debo darle un puerto para escuchar las peticiones
+ const app = express()  //llamando el servicio configurando un server
+ const port = process.env.port || 3000  //debo darle un puerto para escuchar las peticiones
+ const isDev = process.env.NODE_ENV !== 'production'
 
 //  const schema = buildSchema(
 //     readFileSync(
@@ -28,18 +30,21 @@ const typeDefs = readFileSync(
 )
 //llamo a la dependencia
 const schema = makeExecutableSchema({
-    typeDefs, resolvers})
+    typeDefs, resolvers
+})
 
 // //configurar la aplicacion para cuando se lance, la ruta relativa, llamo al middleware y
 // // pasamos los tres argumentos: schema, rootValue, graphiql (aplicacion grafixa)
 
+app.use(cors())
+
 app.use('/api', graphqlHTTP({
     schema: schema, 
     rootValue: resolvers,
-    graphiql:true
+    graphiql: isDev
 }))
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}/api`)
 })
