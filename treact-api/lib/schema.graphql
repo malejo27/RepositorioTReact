@@ -3,6 +3,7 @@ type Proyecto{
     titulo: String!
     profesor: String
     descripcion: String!
+    people:[Usuario]
     
 
 }
@@ -77,4 +78,6 @@ type Mutation{
  editUsuario(_id: ID!, input: UsuarioEditInput): Usuario
  "Elimiar un Usuario"
  deleteUsuario(_id: ID!): Boolean!
+ "Adicionar una persona a un proyecto"
+ addPeople(proyectoID: ID!, personID: ID!): Proyecto
 }
