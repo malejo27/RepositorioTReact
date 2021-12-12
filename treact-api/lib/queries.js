@@ -2,6 +2,7 @@
 
 const connectDb = require('./db')
 const {ObjectId} = require ('mongodb')
+const errorHandler = require ('./errorHandler')
 
 module.exports = {
     getProyectos:async()=>{
@@ -12,7 +13,7 @@ module.exports = {
             proyectos = await db.collection('proyectos').find().toArray()
 
         }catch(error){
-            console.error(error)
+            errorHandler(error)
         }
         return proyectos
     },
@@ -23,7 +24,7 @@ module.exports = {
             db = await connectDb()
             proyecto = await db.collection('proyectos').findOne({_id: ObjectId(id)})
         } catch(error){
-            console.error(error)
+            errorHandler(error)
         }
         return proyecto
 },
@@ -35,7 +36,7 @@ module.exports = {
             usuarios = await db.collection('usuarios').find().toArray()
 
         }catch(error){
-            console.error(error)
+            errorHandler(error)
         }
         return usuarios
     },
@@ -46,7 +47,7 @@ module.exports = {
             db = await connectDb()
             usuario = await db.collection('usuarios').findOne({_id: ObjectId(id)})
         } catch(error){
-            console.error(error)
+            errorHandler(error)
         }
         return usuario
     }

@@ -1,6 +1,7 @@
 'use strict'
 const connectDb = require('./db')
 const {ObjectId} = require ('mongodb')
+const errorHandler = require ('./errorHandler')
 
 module.exports = {
     createProyecto: async(root,{ input }) => {
@@ -15,7 +16,7 @@ module.exports = {
             proyecto = await db.collection('proyectos').insertOne(newProyecto)
             newProyecto._id = proyecto.insertedId
         } catch (error){
-            console.error(error)
+            errorHandler(error)
         }
         return newProyecto
     },
@@ -32,7 +33,7 @@ module.exports = {
                 { _id: ObjectId(_id)}
             )
         } catch (error){
-            console.error(error)
+            errorHandler(error)
         }
         return proyecto
     },
@@ -48,7 +49,7 @@ module.exports = {
         return true
 
     } catch (error){
-        console.error(error)
+        errorHandler(error)
         return false
     }
 },
@@ -69,7 +70,7 @@ module.exports = {
             usuario = await db.collection('usuarios').insertOne(newUsuario)
             newUsuario._id = usuario.insertedId
         } catch (error){
-            console.error(error)
+            errorHandler(error)
         }
         return newUsuario
     },
@@ -86,7 +87,7 @@ module.exports = {
                 { _id: ObjectId(_id)}
             )
         } catch (error){
-            console.error(error)
+            errorHandler(error)
         }
         return usuario
     },
@@ -101,7 +102,7 @@ module.exports = {
         return true
 
     } catch (error){
-        console.error(error)
+        errorHandler(error)
         return false
     }
   },
@@ -125,7 +126,7 @@ module.exports = {
               { $addToSet: { people: ObjectId(personID)}}
           )
   } catch (error){
-      console.error(error)
+      errorHandler(error)
   }
   return proyecto
   }

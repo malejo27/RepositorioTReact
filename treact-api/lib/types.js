@@ -1,6 +1,7 @@
 'use strict'
 const connectDb = require('./db')
 const {ObjectId} = require('mongodb')
+const errorHandler = require ('./errorHandler')
 
 module.exports = {
     Proyecto: {
@@ -18,7 +19,7 @@ module.exports = {
                 ).toArray() 
                 : []
             }catch (error){
-                console.error(error)
+                errorHandler(error)
             }
             return peopleData
         }
