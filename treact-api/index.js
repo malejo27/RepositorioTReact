@@ -9,7 +9,7 @@ const cors = require ('cors')
 // //libreria de manejor de archivos
  const {readFileSync} = require("fs") 
 const {join} = require("path")
-const resolvers = require("./lib/resolvers") //traer un archivo js con una funcion
+const resolvers = require("./treact-api/lib/resolvers") //traer un archivo js con una funcion
 
 
  const app = express(); //llamando el servicio configurando un server

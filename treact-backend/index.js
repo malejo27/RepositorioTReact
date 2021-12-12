@@ -1,15 +1,15 @@
 "use strict";
 
 require('dotenv').config()
-const { graphql, buildSchema } = require("graphql"); //primer  tipo de consulta squema
-const {makeExecutableSchema}= require('graphql-tools') 
+const { graphql, buildSchema } = require("../treact-api/node_modules/graphql"); //primer  tipo de consulta squema
+const {makeExecutableSchema}= require('../treact-api/node_modules/graphql-tools') 
  const express = require("express") 
 const cors = require ('cors')
- const { graphqlHTTP } = require("express-graphql") //el point donde voy a hacer las peticiones
+ const { graphqlHTTP } = require("../treact-api/node_modules/express-graphql") //el point donde voy a hacer las peticiones
 // //libreria de manejor de archivos
  const {readFileSync} = require("fs") 
 const {join} = require("path")
-const resolvers = require("./lib/resolvers") //traer un archivo js con una funcion
+const resolvers = require("./treact-api/lib/resolvers") //traer un archivo js con una funcion
 
 
  const app = express(); //llamando el servicio configurando un server
