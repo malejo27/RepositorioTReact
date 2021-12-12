@@ -30,7 +30,7 @@ const typeDefs = readFileSync(
 )
 //llamo a la dependencia
 const schema = makeExecutableSchema({
-    typeDefs, resolvers})
+    typeDefs, resolvers
 })
 
 // //configurar la aplicacion para cuando se lance, la ruta relativa, llamo al middleware y
