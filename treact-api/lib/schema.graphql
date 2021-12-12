@@ -1,0 +1,80 @@
+type Proyecto{
+    _id: ID!
+    titulo: String!
+    profesor: String
+    descripcion: String!
+    
+
+}
+
+type Usuario{
+    _id: ID!
+    nombre: String!
+    apellido: String
+    identificacion: String!
+    correo: String
+    contrasena: String
+    rol: String
+    estado: String   
+
+}
+
+type Query{
+    "Devuelve todos los usuarios"
+    getUsuarios:[Usuario]
+    "Devuelve un usuario"
+    getUsuario(id:ID!):Usuario
+
+    "Devuelve todos los Proyectos"
+    getProyectos:[Proyecto]
+    "Devuelve un Proyecto"
+    getProyecto(id:ID!):Proyecto
+}
+
+input ProyectoInput{
+    titulo: String!
+    profesor: String
+    descripcion: String!
+}
+
+input ProyectoEditInput{
+    titulo: String
+    profesor: String
+    descripcion: String
+}
+
+input UsuarioInput{
+    nombre: String!
+    apellido: String
+    identificacion: String!
+    correo: String
+    contrasena: String
+    rol: String
+    estado: String
+}
+
+input UsuarioEditInput{
+    nombre: String
+    apellido: String
+    identificacion: String
+    correo: String
+    contrasena: String
+    rol: String
+    estado: String
+}
+
+type Mutation{
+ "Crear un Proyecto"
+ createProyecto(input: ProyectoInput!): Proyecto
+ "Editar un Proyecto"
+ editProyecto(_id: ID!, input: ProyectoEditInput): Proyecto
+ "Eliminar un Proyecto"
+ deleteProyecto(_id: ID!): Boolean!
+
+ "Crear un Usuario"
+ createUsuario(input: UsuarioInput!): Usuario
+ "Editar un Usuario"
+ editUsuario(_id: ID!, input: UsuarioEditInput): Usuario
+ "Elimiar un Usuario"
+ deleteUsuario(_id: ID!): Boolean!
+}
