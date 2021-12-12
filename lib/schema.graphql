@@ -68,9 +68,13 @@ type Mutation{
  createProyecto(input: ProyectoInput!): Proyecto
  "Editar un Proyecto"
  editProyecto(_id: ID!, input: ProyectoEditInput): Proyecto
+ "Eliminar un Proyecto"
+ deleteProyecto(_id: ID!): Boolean!
 
  "Crear un Usuario"
  createUsuario(input: UsuarioInput!): Usuario
  "Editar un Usuario"
  editUsuario(_id: ID!, input: UsuarioEditInput): Usuario
+ "Elimiar un Usuario"
+ deleteUsuario(_id: ID!): Boolean!
 }
