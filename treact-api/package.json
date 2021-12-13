@@ -7,6 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
+    "start": "set NODE_ENV=production&&node index.js",
+    "dev": "nodemon -e js,graphql index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

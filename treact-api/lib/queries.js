@@ -50,5 +50,25 @@ module.exports = {
             errorHandler(error)
         }
         return usuario
+    },
+    searchItems: async (root, {keyword}) =>{
+        let db
+        let items
+        let proyectos 
+        let people
+        try{
+            db= await connectDb()
+            proyectos= await db.collection('proyectos').find({
+                $text : { $search: keyword}
+            }).toArray()
+            people= await db.collection('usuarios').find({
+                $text : { $search: keyword}
+            }).toArray()
+            items = [... proyectos, ...people]
+        }catch(error){
+            errorHandler(error)
+
+        }
+        return items
     }
 }

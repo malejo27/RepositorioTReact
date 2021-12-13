@@ -60,6 +60,8 @@ type Query{
     getProyecto(id:ID!):Proyecto
     "Ejecuta una consulta global"
     searchItems(keyword: String!) : [GlobalSearch]
+    
+
 }
 
 input ProyectoInput{

@@ -10,6 +10,7 @@ import axios from 'axios';
 
 import './App.css';
 import CrearUsaurio from './components/usuarios/createUsuario';
+import Footer from './components/shared/Footer';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <CrearUsaurio />
         </Col>
       </Row>
+      <Footer></Footer>
     </Container>
     </>
 
