@@ -1,11 +1,16 @@
+enum Level {
+    Activo
+    Inactivo
+}
+
+
 type Proyecto{
     _id: ID!
     titulo: String!
     profesor: String
     descripcion: String!
     people:[Usuario]
-    
-
+    estadoProyecto: Level
 }
 
 type Usuario{
@@ -16,7 +21,7 @@ type Usuario{
     correo: String
     contrasena: String
     rol: String
-    estado: String   
+    estadoUsuario: Level   
 
 }
 
@@ -36,12 +41,14 @@ input ProyectoInput{
     titulo: String!
     profesor: String
     descripcion: String!
+    estadoProyecto: Level
 }
 
 input ProyectoEditInput{
     titulo: String
     profesor: String
     descripcion: String
+    estadoProyecto: Level
 }
 
 input UsuarioInput{
@@ -51,7 +58,7 @@ input UsuarioInput{
     correo: String
     contrasena: String
     rol: String
-    estado: String
+    estadoUsuario: Level
 }
 
 input UsuarioEditInput{
@@ -61,7 +68,7 @@ input UsuarioEditInput{
     correo: String
     contrasena: String
     rol: String
-    estado: String
+    estadoUsuario: Level
 }
 
 type Mutation{
