@@ -37,5 +37,19 @@ module.exports = {
             }     
             }
             
+        },
+        GlobalSearch: {
+            __resolveType: (item, context, info) => {
+                if (item.titulo) {
+                    return 'Proyecto'
+                }
+                if (item.telefono) {
+                    return 'Administrador'
+                }
+                if (item.documentoIdentificacion) {
+                    return 'Lider'
+                }
+                return 'Estudiante'
+            }
         }
     }

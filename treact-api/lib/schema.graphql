@@ -46,6 +46,8 @@ type Lider implements Person{
 
 }
 
+union GlobalSearch = Proyecto | Estudiante | Administrador | Lider
+
 type Query{
     "Devuelve todos los administradores, estudiantes y/o lider"
     getPeople:[Person]
@@ -56,6 +58,8 @@ type Query{
     getProyectos:[Proyecto]
     "Devuelve un Proyecto"
     getProyecto(id:ID!):Proyecto
+    "Ejecuta una consulta global"
+    searchItems(keyword: String!) : [GlobalSearch]
 }
 
 input ProyectoInput{
