@@ -1,53 +1,53 @@
-import React, { useState, useEffect } from "react";
-import { consultarDatabase, eliminarDocumentoDatabase } from '../conexion-bd/funciones';
-import { Link } from 'react-router-dom'
+import React from "react";
+// import { consultarDatabase, eliminarDocumentoDatabase } from '../conexion-bd/funciones';
+
 
 function Proyectos() {
 
-    const [listaRoles, setlistaRoles] = useState([])
+    // const [listaRoles, setlistaRoles] = useState([])
 
-    const handleCargarDatos = async () => {
-        const listaRoles = await consultarDatabase('proyecto')
-        setlistaRoles(listaRoles)
-    }
-    /*  useEffect(() => {
-         handleCargarDatos()
-     }, []) */
+    // const handleCargarDatos = async () => {
+    //     const listaRoles = await consultarDatabase('proyecto')
+    //     setlistaRoles(listaRoles)
+    // }
+    // /*  useEffect(() => {
+    //      handleCargarDatos()
+    //  }, []) */
 
 
-    handleCargarDatos()
+    // handleCargarDatos()
 
    
 
-    const deleteRol = (event) => {
-        const eliminar = async () => {
-            const respuestaEliminar = await eliminarDocumentoDatabase('rol', event);
-        }
+    // const deleteRol = (event) => {
+    //     const eliminar = async () => {
+    //         const respuestaEliminar = await eliminarDocumentoDatabase('rol', event);
+    //     }
 
-        if (window.confirm("De verdad quieres eliminar el rol?")) {
-            eliminar();
-        } else {
-            window.location.reload();
-        }
-    }
-    const [busqueda, setBusqueda] = useState('')
+    //     if (window.confirm("De verdad quieres eliminar el rol?")) {
+    //         eliminar();
+    //     } else {
+    //         window.location.reload();
+    //     }
+    // }
+    // const [busqueda, setBusqueda] = useState('')
 
-    const Filter = (search, lista) => {
-        if (search == '') {
-            return lista
-        } else {
-            var expression = new RegExp(search, 'i');
-            var listFiletered = [];
-            lista.forEach((C) => {
-                if (expression.test(C.Rol) || expression.test(C.Instructor)) {
-                    listFiletered.push(C)
-                }
-            })
-            return listFiletered;
-        }
-    }
+    // const Filter = (search, lista) => {
+    //     if (search == '') {
+    //         return lista
+    //     } else {
+    //         var expression = new RegExp(search, 'i');
+    //         var listFiletered = [];
+    //         lista.forEach((C) => {
+    //             if (expression.test(C.Rol) || expression.test(C.Instructor)) {
+    //                 listFiletered.push(C)
+    //             }
+    //         })
+    //         return listFiletered;
+    //     }
+    // }
 
-    const cursos = Filter(busqueda, listaRoles);
+    // const cursos = Filter(busqueda, listaRoles);
 
     return (
         <>
@@ -60,11 +60,8 @@ function Proyectos() {
                         <div className="row d-flex align-items-center justify-content-center">
                             <div className="col-sm-1 align-text-bottom"><h5>Buscar:</h5></div>
                             <div className="col-sm-5">
-                                <input id="busqueda" type="text" className="form-control" placeholder="Nombre" onChange={event => setBusqueda(event.target.value)} />
                             </div>
-                            <Link className="col" to='/agregar_rol'>
-                                <button className="btn btn-success" type="button">Agregar Rol</button>
-                            </Link>
+                           
                         </div>
 
                         <hr />
@@ -80,7 +77,7 @@ function Proyectos() {
                             </thead>
                             <tbody>
 
-                                {
+                                {/* {
                                     listaRoles.map((rol, index) => {
                                         return (
                                             <tr key={rol.id}>
@@ -92,12 +89,12 @@ function Proyectos() {
                                                     <Link to={`/editar_rol/${rol.id}`}>
                                                         <button className='btn btn-sm'><i className="fas fa-edit"></i></button>
                                                     </Link>
-                                                    <button value={rol.id} className='btn btn-sm' onClick={() => deleteRol(rol.id)}><i className="far fa-trash-alt"></i></button>
                                                 </td>
                                             </tr>
                                         )
                                     })
-                                }
+                                } 
+                                */}
                             </tbody>
                         </table>
                     </div>
