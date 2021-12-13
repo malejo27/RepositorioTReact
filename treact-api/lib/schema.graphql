@@ -1,29 +1,56 @@
+interface Person{
+   _id: ID!
+   nombre: String!
+   correo: String!
+}
+
+enum Level {
+    Activo
+    Inactivo
+}
+
+
 type Proyecto{
     _id: ID!
     titulo: String!
     profesor: String
     descripcion: String!
-    
+    people:[Estudiante]
+    estadoProyecto: Level
+}
+
+type Estudiante implements Person{
+    _id: ID!
+    nombre: String!
+    correo: String!
+    estadoUsuario: Level   
 
 }
 
-type Usuario{
+type Administrador implements Person{
     _id: ID!
     nombre: String!
-    apellido: String
-    identificacion: String!
-    correo: String
-    contrasena: String
-    rol: String
-    estado: String   
+    correo: String!
+    telefono: String
+    estadoUsuario: Level   
+
+}
+
+type Lider implements Person{
+    _id: ID!
+    nombre: String!
+    correo: String!
+    telefono: String
+    documentoIdentificacion: String
+    estadoUsuario: Level   
 
 }
 
 type Query{
-    "Devuelve todos los usuarios"
-    getUsuarios:[Usuario]
-    "Devuelve un usuario"
-    getUsuario(id:ID!):Usuario
+    "Devuelve todos los administradores, estudiantes y/o lider"
+    getPeople:[Person]
+    "Devuelve un administrador, estudiante y/o lider"
+    getPerson(id: ID!): Person
 
     "Devuelve todos los Proyectos"
     getProyectos:[Proyecto]
@@ -35,32 +62,31 @@ input ProyectoInput{
     titulo: String!
     profesor: String
     descripcion: String!
+    estadoProyecto: Level
 }
 
 input ProyectoEditInput{
     titulo: String
     profesor: String
     descripcion: String
+    estadoProyecto: Level
 }
 
-input UsuarioInput{
-    nombre: String!
-    apellido: String
-    identificacion: String!
-    correo: String
-    contrasena: String
-    rol: String
-    estado: String
+input PersonInput{
+   nombre: String!
+   correo: String!
+   telefono: String
+   documentoIdentificacion: String
+   estadoUsuario: Level
+
 }
 
-input UsuarioEditInput{
-    nombre: String
-    apellido: String
-    identificacion: String
-    correo: String
-    contrasena: String
-    rol: String
-    estado: String
+input PersonEditInput{
+   nombre: String
+   correo: String
+   telefono: String
+   documentoIdentificacion: String
+   estadoUsuario: Level
 }
 
 type Mutation{
@@ -71,10 +97,12 @@ type Mutation{
  "Eliminar un Proyecto"
  deleteProyecto(_id: ID!): Boolean!
 
- "Crear un Usuario"
- createUsuario(input: UsuarioInput!): Usuario
- "Editar un Usuario"
- editUsuario(_id: ID!, input: UsuarioEditInput): Usuario
- "Elimiar un Usuario"
- deleteUsuario(_id: ID!): Boolean!
+ "Crear un administrador, estudiante y/o lider"
+ createPerson(input: PersonInput!): Person
+ "Editar un administrador, estudiante y/o lider"
+ editPerson(_id: ID!, input: PersonEditInput): Person
+ "Elimiar un administrador, estudiante y/o lider"
+ deletePerson(_id: ID!): Boolean!
+ "Adicionar una persona a un proyecto"
+ addPeople(proyectoID: ID!, personID: ID!): Proyecto
 }
