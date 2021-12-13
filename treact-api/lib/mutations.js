@@ -54,12 +54,10 @@ module.exports = {
     }
 },
 
-    createUsuario: async(root,{ input }) => {
+    createPerson: async(root,{ input }) => {
         const defaults = {
-            apellido: '',
             correo: '',
             contrasena: '',
-            rol: '',
             estado: ''
         }
         const newUsuario = Object.assign(defaults, input)
@@ -74,7 +72,7 @@ module.exports = {
         }
         return newUsuario
     },
-    editUsuario: async(root,{_id, input }) => {  
+    editPerson: async(root,{_id, input }) => {  
         let db
         let usuario
         try {
@@ -91,7 +89,7 @@ module.exports = {
         }
         return usuario
     },
-    deleteUsuario: async (root, {_id}) => {
+    deletePerson: async (root, {_id}) => {
         let db
 
         try{

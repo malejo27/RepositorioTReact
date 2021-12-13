@@ -14,7 +14,7 @@ module.exports = {
                 db = await connectDb()
                 ids = people ? people.map(id => ObjectId(id)) : []
                 peopleData = ids.length > 0 
-                ? await db.collection('usuarios').find(
+                ? await db.collection('estudiantes').find(
                     { _id: {$in: ids}}
                 ).toArray() 
                 : []
@@ -23,5 +23,19 @@ module.exports = {
             }
             return peopleData
         }
+    },
+    Person: {
+        __resolveType: (person, context, info) =>{
+            if (person.telefono){
+                return 'Administrador'
+            }
+            else if (person.documentoIdentificacion){
+                return 'Lider'
+                }   
+            else {
+                return 'Estudiante'
+            }     
+            }
+            
+        }
     }
-}

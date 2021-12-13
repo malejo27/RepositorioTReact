@@ -28,7 +28,7 @@ module.exports = {
         }
         return proyecto
 },
-    getUsuarios:async()=>{
+    getPeople:async()=>{
         let db
         let usuarios =[]
         try{
@@ -40,7 +40,7 @@ module.exports = {
         }
         return usuarios
     },
-    getUsuario: async (root, { id }) => {
+    getPerson: async (root, { id }) => {
         let db
         let usuario
         try {
