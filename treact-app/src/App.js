@@ -14,13 +14,13 @@ import Footer from './components/shared/Footer';
 
 
 function App() {
-  const [usuarios, setUsuarios]= useState([]);
+  // const [usuarios, setUsuarios]= useState([]);
 
-  const cargarUsuarios= () =>{
-    axios.get('http://localhost:3000/api')
-    .then(({data}) => setUsuarios(data));
-  }
-  useEffect(cargarUsuarios, []) 
+  // const cargarUsuarios= () =>{
+  //   axios.get('http://localhost:8080')
+  //   .then(({data}) => setUsuarios(data));
+  // }
+  // useEffect(cargarUsuarios, []) 
 
   return (
     <>
@@ -28,7 +28,7 @@ function App() {
     <Container>
       <Row>
         <Col md={6}>
-        <ListUsuarios usuarios={usuarios}></ListUsuarios>
+        <ListUsuarios ></ListUsuarios>
         </Col>
         <Col  md={6}>
         <CrearUsaurio />
