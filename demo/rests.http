@@ -2,10 +2,10 @@ POST http://localhost:8080/save HTTP/1.1
 content-Type: application/json
 
 {
-    "name": "jonathan",
+    "name": "Alejandra",
     "apellido" : "apellido",
     "identificacion": "212",
-    "correp" : "correp",
+    "correp" : "manu@gmail.com",
     "contrasena" : "contrasena",
     "rol" : "rol",
     "estado" : "estado"
@@ -13,14 +13,23 @@ content-Type: application/json
 
 ### 
 GET http://localhost:8080 HTTP/1.1
-
 content-Type: application/json
 
 ### 
-Post https://localhost:8080/update/991 HTTP/1.1
+Post http://localhost:8080/update/746 HTTP/1.1
 content-Type: application/json
 
 {
-    "name": "aa",
-    
+    "nombre": "Alejandra",
+    "identificacion": "13342443"
 }
+
+### 
+
+GET http://localhost:8080/find/198 HTTP/1.1
+content-Type: application/json
+
+### 
+
+GET http://localhost:8080/delete/618 HTTP/1.1
+content-Type: application/json
