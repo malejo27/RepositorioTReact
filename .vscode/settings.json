@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "SpringCloudConfigServer/src/main/java",
+        "SprintCloud/SpringCloudConfigServer/src/main/java/com/microservices/SpringCloudConfigServer"
+    ]
+}
