@@ -4,19 +4,20 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 
-const ListaUsuarios = ({ usuarios }) => {
+const ListaUsuarios = ({ usuarios, onDelete, onEdit }) => {
   return (
     <>
       <h3 className="mb-3">Mi lista de usuarios</h3>
 
-      {usuarios.map((usuario) => (
+      {
+      usuarios.map((usuario) => (
         <div className="mb-3 border rounded p-3" key={usuario.id}>
           <div>
             <div className="d-flex justify-content-between mb-1">
               <div className="fw-bold">{usuario.nombre}</div>
               <div className="text muted small">
-                  <FontAwesomeIcon icon={faEdit} className="cursor-pointer"/> 
-                  <FontAwesomeIcon icon={faTrash} className="cursor-pointer ms-2"/> 
+                  <FontAwesomeIcon icon={faEdit} className="cursor-pointer" onClick={()=> onEdit(usuario)}/> 
+                  <FontAwesomeIcon icon={faTrash} className="cursor-pointer ms-2" onClick={()=> onDelete(usuario)}/> 
               </div>
             </div>
             <div>
