@@ -8,7 +8,7 @@ public interface UsuarioRepository extends MongoRepository<Usuario, String> {
 
     Object findAllById(String id);
 
-    Object findAllById(String id);
+    
 
     
 }

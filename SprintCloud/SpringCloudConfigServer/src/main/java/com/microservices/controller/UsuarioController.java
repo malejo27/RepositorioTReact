@@ -37,7 +37,7 @@ public class UsuarioController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
     Usuario create(@RequestBody Usuario usuario){
-        return usuarioRepository.save(usuario)
+        return usuarioRepository.save(usuario);
 
     }
     @PostMapping("id")
@@ -47,7 +47,7 @@ public class UsuarioController {
         .orElseThrow(RuntimeException::new);
 
         usuarioFromDB.setNombre(usuario.getNombre());
-        usuarioFromDB.setApellido(usuario.getApellido())
+        usuarioFromDB.setApellido(usuario.getApellido());
 
         return usuarioRepository.save(usuarioFromDB);
 
