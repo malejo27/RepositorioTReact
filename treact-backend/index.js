@@ -1,5 +1,7 @@
 "use strict";
 
+
+
 require('dotenv').config()
 const { graphql, buildSchema } = require("../treact-api/node_modules/graphql"); //primer  tipo de consulta squema
 const {makeExecutableSchema}= require('../treact-api/node_modules/graphql-tools') 
