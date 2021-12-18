@@ -1,6 +1,6 @@
-import React from "react";
-import {AvForm, AvField, AvInput, AvGroup } from 'availity-reactstrap-validation';
-import { Button, Label } from "reactstrap";
+import React, {useRef} from "react";
+import {AvForm, AvField, AvGroup } from 'availity-reactstrap-validation';
+import { Button } from "reactstrap";
 
 const CrearUsaurio = ({usuario, onSubmit}) =>{
     let form = useRef();
@@ -11,16 +11,13 @@ const CrearUsaurio = ({usuario, onSubmit}) =>{
 
     return (
         <>
-        <h3 className="mb-3">{tarea ? 'Editar': 'Nueva' } tarea</h3>
+        <h3 className="mb-3">{usuario ? 'Editar': 'Nueva' } usuario</h3>
         <AvForm ref={c=>(form = c)} onValidSubmit={(_, values)=> _onSubmit(values)} >
             <AvGroup className="mb-3">
-                <AvField name="nombre" label="Nombre" required value={usuario ? tarea.nombre : '' }></AvField> 
+                <AvField name="nombre" label="Nombre" required value={usuario ? usuario.nombre : '' }></AvField> 
 
             </AvGroup>
-            <AvGroup check className="mb-3">
-                <AvInput type="checbox" name="copletado" checked = {tarea ? tarea.completado: false}/>
-                <Label   check for ="completado"> Completado</Label>
-            </AvGroup>
+            
             <div className="text-end">
                 <Button color="primary">Guardar</Button>
 

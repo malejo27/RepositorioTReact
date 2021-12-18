@@ -1,9 +1,16 @@
 package com.example.demo.models;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Data
+// @Document(collection="usuarios")
+@Document
 public class Usuario {
-    public int id;
+    @Id
+    public String id;
   
-    public String name;
+    public String nombre;
     public String apellido;
     public String identificacion;
     public String correp;
@@ -11,14 +18,13 @@ public class Usuario {
     public String rol;
     public String estado;
 
-    public Usuario(){
-
-    }
+  
+   
     
-    public Usuario(int id, String name, String apellido, String identificacion, String correp, String contrasena,
+    public Usuario(String id, String nombre, String apellido, String identificacion, String correp, String contrasena,
             String rol, String estado) {
         this.id = id;
-        this.name = name;
+        this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = identificacion;
         this.correp = correp;
@@ -27,14 +33,19 @@ public class Usuario {
         this.estado = estado;
     }
 
-    public int getId() {
+    
+    public String getId() {
         return id;
     }
-    public void setId(int id) {
+
+
+    public void setId(String id) {
         this.id = id;
     }
-    public void setName(String name){
-        this.name=name;
+
+
+    public void setNombre(String nombre){
+        this.nombre=nombre;
 
     }
     public String getApellido() {
@@ -73,8 +84,8 @@ public class Usuario {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public String getName(){
-        return name;
+    public String getNombre(){
+        return nombre;
     }
 
     
